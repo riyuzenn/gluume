@@ -2,10 +2,7 @@
 
 "use client"
 
-import Galaxy from "@/components/Galaxy";
-import LightRays from "@/components/LightRays";
 import Particles from "@/components/Particles";
-import DarkVeil from "@/components/DarkVeil";
 import ShinyText from "@/components/ShinyText";
 import React from "react";
 
