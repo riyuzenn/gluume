@@ -1,18 +1,14 @@
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "gluu.me",
     images: [
       {
-        url: "/og-image.png", // place your OG image in /public
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "gluu.me preview",
@@ -50,8 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "gluu.me — Link everything. Stay glued.",
-    description:
-      "Customizable biolinks for Discord. Make your gluu page yours.",
+    description: "Customizable biolinks for Discord. Make your gluu page yours.",
     images: ["/og-image.png"],
     creator: "@gluu_me",
   },
@@ -64,21 +59,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider 
-          defaultTheme="dark" 
-          attribute="class"
-        >
+      <body className={`${poppins.variable} font-sans antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
