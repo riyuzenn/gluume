@@ -1,44 +1,74 @@
 
 
-"use client"
+"use client";
 
-import Logo from "@/components/logo";
-import Particles from "@/components/Particles";
-import ShinyText from "@/components/ShinyText";
 import React from "react";
+import TiltedCard from "@/components/TiltedCard";
+import { useDeviceSize } from "@/hooks/useDeviceSize";
 
 export default function HomePage() {
+  const { width } = useDeviceSize();
+
+  const isMobile = width < 768;
+  const isIpadPortrait = width >= 768 && width <= 1024;
+
+  const imageHeight = isMobile
+    ? `283px`
+    : isIpadPortrait
+    ? `618px`
+    : `693px`;
+  const imageWidth = isMobile
+    ? `196px`
+    : isIpadPortrait
+    ? `428px`
+    : `480px`;
+
   return (
-    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      {/*
-      <LightRays
-        raysOrigin="top-center"
-        raysColor="#fff"
-        raysSpeed={1.5}
-        lightSpread={0.8}
-        rayLength={1.2}
-        followMouse={true}
-        mouseInfluence={0.1}
-        noiseAmount={0.1}
-        distortion={0.05}
-        className="absolute inset-0"
-      />
-      */}
-      <Particles />
-      <div className="absolute  z-10 flex flex-col items-center justify-center"> 
-        <div className="pt-5 flex justify-center items-center gap-1">
-          <Logo />
-          <ShinyText 
-            text="Stay Tuned!"
-            speed={3}
-            className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance text-white"
-          /> 
-        </div>
-        <p className="text-lg text-gray-500 pt-5">
-          A new experience is taking shape.
+    <div
+      className={`flex ${
+        isMobile || isIpadPortrait ? "flex-col" : "flex-row"
+      } items-center justify-evenly min-h-screen gap-16 md:gap-28 lg:gap-32 px-6 md:px-16 lg:px-32`}
+    >
+      <div
+        className={`flex flex-col max-w-3xl lg:max-w-2xl gap-8 text-center md:text-left`}
+      >
+        <h1
+          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight text-balance`}
+        >
+          gluu.me — where your links live.
+        </h1>
+
+        <p className={`text-lg sm:text-xl md:text-2xl text-muted-foreground`}>
+          Stick out online. A modern, aesthetic link-in-bio for everyone.
         </p>
+
+        <div className="flex flex-col gap-3">
+          <button
+            disabled
+            className={`px-5 py-3 md:px-6 md:py-4 rounded-full text-xl md:text-2xl font-medium border border-[#DFFF8D] bg-[#DFFF8D] text-[#0f0f0f] transition-all duration-300 ease-in-out hover:bg-[#0f0f0f] hover:text-white cursor-pointer disabled:bg-[#67773E] disabled:border-[#67773E] disabled:text-[#0f0f0f]`}
+          >
+            Join the waitlist!
+          </button>
+          <p className="text-center text-muted-foreground text-sm md:text-base">
+            The waitlist is currently closed. Stay tuned for updates!
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <TiltedCard
+          imageSrc="/hero_image.png"
+          altText="gluu.me"
+          containerHeight={imageHeight}
+          containerWidth={imageWidth}
+          imageHeight={imageHeight}
+          imageWidth={imageWidth}
+          rotateAmplitude={12}
+          scaleOnHover={1.05}
+          showMobileWarning={false}
+          showTooltip={false}
+        />
       </div>
     </div>
-  )
+  );
 }
-
