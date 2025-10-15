@@ -2,6 +2,7 @@
 
 "use client"
 
+import Logo from "@/components/logo";
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
 import React from "react";
@@ -25,11 +26,14 @@ export default function HomePage() {
       */}
       <Particles />
       <div className="absolute  z-10 flex flex-col items-center justify-center"> 
-        <ShinyText 
-          text="🚧 Stay Tuned!"
-          speed={3}
-          className="pt-10 scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance text-white"
-        />
+        <div className="pt-5 flex justify-center items-center gap-1">
+          <Logo />
+          <ShinyText 
+            text="Stay Tuned!"
+            speed={3}
+            className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance text-white"
+          /> 
+        </div>
         <p className="text-lg text-gray-500 pt-5">
           A new experience is taking shape.
         </p>
