@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "gluu.me — Link everything. Stay glued.",
     description:
-      "Your customizable biolink for Discord and beyond. Make your page truly yours.",
+      "Your customizable biolink for everywhere. Make your page truly yours.",
     url: "https://gluu.me",
     siteName: "gluu.me",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "gluu.me — Link everything. Stay glued.",
-    description: "Customizable biolinks for Discord. Make your gluu page yours.",
+    description: "Customizable biolinks for everywhere. Make your gluu page yours.",
     images: ["/og-image.png"],
     creator: "@gluu_me",
   },
